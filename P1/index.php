@@ -1,1 +1,1 @@
-<?php header("Location: ./partials/portal0.php?action=home"); ?>
+<?php header("Location: ./partials/portal.php?action=home"); ?>

@@ -31,6 +31,9 @@ switch ($action) {
             $descripcion=$_REQUEST["nombre"];
             $central = "/../partials/centralForm.php";
             break;
+    case "nosotros":
+            $central = "/../partials/nosotros.php";
+            break;
     default:
         $data["error"] = "Accion No permitida";
         $central = "/../partials/defecto.php";
@@ -41,6 +44,7 @@ switch ($action) {
 
 include(dirname(__FILE__)."/../partials/header.php");
 include(dirname(__FILE__)."/../partials/menu.php");
+
 include(dirname(__FILE__).$central);
 var_dump($GLOBALS);
 include(dirname(__FILE__)."/../partials/footer.php");
