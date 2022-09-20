@@ -38,6 +38,9 @@ switch ($action) {
     case "home":
         $central = "/../partials/home.php";
         break;
+    case "registro":
+        $central = "/../partials/formRegistro.php";
+        break;
 
     default:
         $data["error"] = "Accion No permitida";
