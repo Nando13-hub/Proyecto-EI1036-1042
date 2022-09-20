@@ -19,11 +19,12 @@ else $action = "home";
 
 
 switch ($action) {
-    case "home":
+    /*case "home":
         $nombre="";
         $descripcion="";
         $central = "/../partials/centralForm.php";
         break;
+    */
     case "registrar":
             echo "Nombre:",$_REQUEST["nombre"];
             echo "Descripción:",$_REQUEST["descripcion"];
@@ -34,6 +35,10 @@ switch ($action) {
     case "nosotros":
             $central = "/../partials/nosotros.php";
             break;
+    case "home":
+        $central = "/../partials/home.php";
+        break;
+
     default:
         $data["error"] = "Accion No permitida";
         $central = "/../partials/defecto.php";
