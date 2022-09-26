@@ -26,25 +26,25 @@ switch ($action) {
         break;
     */
     case "registrar":
-            echo "nomEmpresa:",$_REQUEST["nomEmpresa"];
+            echo "Nom Empresa:",$_REQUEST["nomEmpresa"];
             $nomEmpresa=$_REQUEST["nomEmpresa"];
             
-            echo "nomGestor:",$_REQUEST["nomGestor"];
+            echo "Nom Gestor:",$_REQUEST["nomGestor"];
             $nomGestor=$_REQUEST["nomGestor"];
 
-            echo "adreça:",$_REQUEST["adreça"];
+            echo "Adreça:",$_REQUEST["adreça"];
             $adreça=$_REQUEST["adreça"];
 
-            echo "codiPostal:",$_REQUEST["codiPostal"];
+            echo "Codi Postal:",$_REQUEST["codiPostal"];
             $codiPostal=$_REQUEST["codiPostal"];
 
-            echo "població:",$_REQUEST["població"];
+            echo "Població:",$_REQUEST["població"];
             $població=$_REQUEST["població"];
 
-            echo "email:",$_REQUEST["email"];
+            echo "Email:",$_REQUEST["email"];
             $email=$_REQUEST["email"];
 
-            echo "informació:",$_REQUEST["informació"];
+            echo "Informació:",$_REQUEST["informació"];
             $informació=$_REQUEST["informació"];
 
             $central = "/../partials/centralForm.php";
