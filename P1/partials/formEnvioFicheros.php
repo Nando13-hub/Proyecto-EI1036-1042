@@ -2,9 +2,9 @@
 	<h1>Gestión de Actividades </h1>
     <form class="fom_usuario" action="?action=envio" method="POST" enctype="multipart/form-data">
 
-        <label for="nombre">Nombre</label>
+        <label for="nombreFichero">Nombre del fichero</label>
 		<br/>
-		<input type="text" name="nombre" class="item_requerid" size="20" maxlength="25">
+		<input type="text" name="nombreFichero" class="item_requerid" size="20" maxlength="25">
 		<br/>
 
 		<label for="fichero">Fichero</label>

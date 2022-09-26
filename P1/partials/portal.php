@@ -66,10 +66,19 @@ switch ($action) {
         $central = "/../partials/formRegistro.php";
         break;
 
-    default:
-        
-        $data["error"] = "Accion No permitida";
+    case "envio":
+        $nombrefichero=$_FILES["foto_cliente"]['name'];
+        $destino=dirname(__FILE__)."/../img/ficherosClientes/";       
+        if(!move_uploaded_file($_FILES["foto_cliente"]['tmp_name'],$destino.$nombrefichero)) {
+            $data["error"] ="Failed to create file: $nombrefichero";}
+        else 
+            $data["exito"] = "Fichero subido con éxito"; 
+            
+        $central = "/../partials/defecto.php";
+        break;
 
+    default:
+        $data["error"] = "Accion No permitida";
         $central = "/../partials/defecto.php";
 }
 
