@@ -54,6 +54,10 @@ switch ($action) {
             $central = "/../partials/nosotros.php";
             break;
 
+    case "envioFichero":
+            $central = "/../partials/formEnvioFicheros.php";
+            break;
+
     case "home":
         $central = "/../partials/home.php";
         break;
