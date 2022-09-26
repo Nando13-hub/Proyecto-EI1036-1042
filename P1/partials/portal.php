@@ -26,24 +26,46 @@ switch ($action) {
         break;
     */
     case "registrar":
-            echo "Nombre:",$_REQUEST["nombre"];
-            echo "Descripción:",$_REQUEST["descripcion"];
-            $nombre=$_REQUEST["nombre"];
-            $descripcion=$_REQUEST["nombre"];
+            echo "nomEmpresa:",$_REQUEST["nomEmpresa"];
+            $nomEmpresa=$_REQUEST["nomEmpresa"];
+            
+            echo "nomGestor:",$_REQUEST["nomGestor"];
+            $nomGestor=$_REQUEST["nomGestor"];
+
+            echo "adreça:",$_REQUEST["adreça"];
+            $adreça=$_REQUEST["adreça"];
+
+            echo "codiPostal:",$_REQUEST["codiPostal"];
+            $codiPostal=$_REQUEST["codiPostal"];
+
+            echo "població:",$_REQUEST["població"];
+            $població=$_REQUEST["població"];
+
+            echo "email:",$_REQUEST["email"];
+            $email=$_REQUEST["email"];
+
+            echo "informació:",$_REQUEST["informació"];
+            $informació=$_REQUEST["informació"];
+
             $central = "/../partials/centralForm.php";
             break;
+
     case "nosotros":
             $central = "/../partials/nosotros.php";
             break;
+
     case "home":
         $central = "/../partials/home.php";
         break;
+
     case "registro":
         $central = "/../partials/formRegistro.php";
         break;
 
     default:
+        
         $data["error"] = "Accion No permitida";
+
         $central = "/../partials/defecto.php";
 }
 

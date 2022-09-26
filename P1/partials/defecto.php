@@ -1,4 +1,9 @@
-<main>
-	<h1>Algo no ha ido bien</h1>
-	<p>Vuelve a intentarlo con otra opción </p>
-</main>
+<?php //control_form.php 
+if (isset($data["error"])) {
+        print ("<P>Error: ".$data["error"]. "</P>");
+}
+
+if (isset($data["exito"])) {
+	print ("<P>Exito: ".$data["exito"]. "</P>");
+}
+ ?>
