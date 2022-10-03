@@ -25,7 +25,7 @@ switch ($action) {
         $central = "/../partials/centralForm.php";
         break;
     */
-    case "registrar":
+    case "modificar":
             echo "Nom Empresa:",$_REQUEST["nomEmpresa"];
             $nomEmpresa=$_REQUEST["nomEmpresa"];
             
