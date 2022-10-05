@@ -46,7 +46,7 @@ function consultar($pdo,$table) {
    $a=$consult->execute(array());
    if (1>$a)echo "InCorrectoConsulta";
    return ($consult->fetchAll(PDO::FETCH_ASSOC)); 
- 
+
 }
 
 function anyadir($pdo,$table)
