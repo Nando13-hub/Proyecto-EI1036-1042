@@ -13,8 +13,6 @@
 
  * */
 
-include(dirname(__FILE__)."/../partials/gestion_BD.php");
-
 //echo $_SERVER['DOCUMENT_ROOT']."/partials/footer.php";
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
@@ -27,7 +25,7 @@ switch ($action) {
         $central = "/../partials/centralForm.php";
         break;
     */
-    case "registrar":
+    case "modificar":
             echo "Nom Empresa:",$_REQUEST["nomEmpresa"];
             $nomEmpresa=$_REQUEST["nomEmpresa"];
             
@@ -49,7 +47,6 @@ switch ($action) {
             echo "Informació:",$_REQUEST["informació"];
             $informació=$_REQUEST["informació"];
 
-            anyadir($pdo, "RegistroDatos");
             $central = "/../partials/centralForm.php";
             break;
 

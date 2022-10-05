@@ -52,8 +52,8 @@ function consultar($pdo,$table) {
 function anyadir($pdo,$table)
 {
    try {
-      $valores=[$_REQUEST["nom_empresa"], $_REQUEST["nom_gestor"],$_REQUEST["adreça"],$_REQUEST["codi_postal"],$_REQUEST["població"],$_REQUEST["email"],$_REQUEST["insformació"]];
-      $query = "INSERT INTO    $table (nom_empresa,nom_gestor,adreça,codi_postal,població,email,informació) VALUES (?,?,?,?,?,?,?)";
+      $valores=["actividad1","Largo actividad1"];
+      $query = "INSERT INTO    $table (nombre,descripcion) VALUES (?,?)";
       $consult = $pdo->prepare($query);
       $a=$consult->execute($valores); 
       if (1>$a)echo "InCorrecto";
