@@ -5,10 +5,10 @@
 define('DB_NAME', 'EI1036_42_al386122al386169');
 
 /** MySQL database username */
-define('DB_USER', 'al386122');
+define('DB_USER', 'al386169');
 
 /** MySQL database password */
-define('DB_PASSWORD', '20913431Z');
+define('DB_PASSWORD', '73660682P');
 
 /** MySQL hostname */
 define('DB_HOST', 'db-aules.uji.es' );
@@ -32,6 +32,7 @@ function crearTablaActividades($pdo,$table)
                email VARCHAR(80) NOT NULL,
                informació VARCHAR(150) NOT NULL);";
 
+
       $pdo->exec($query);
    } catch (PDOException $e) {
       echo "Failed to get DB handle: " . $e->getMessage() . "\n";
@@ -43,7 +44,8 @@ function consultar($pdo,$table) {
    $query = "SELECT     * FROM       $table "; 
    $consult = $pdo->prepare($query);
    $a=$consult->execute(array());
-   if (1>$a)echo "InCorrectoConsulta";
+   if (1>$a)echo 
+      "InCorrectoConsulta";
    return ($consult->fetchAll(PDO::FETCH_ASSOC)); 
 
 }
@@ -55,9 +57,10 @@ function anyadir($pdo,$table)
       $query = "INSERT INTO $table (nom_empresa,nom_gestor,adreça,codi_postal,població,email,informació) VALUES (?,?,?,?,?,?,?)";
       $consult = $pdo->prepare($query);
       $a=$consult->execute($valores); 
-      if (1>$a)echo "InCorrecto";
-      $datos=consultar($pdo,$table);
-      print_r($datos);
+      if (1>$a)
+         echo "InCorrecto";
+      //$datos=consultar($pdo,$table);
+      //print_r($datos);
       }
       catch (PDOException $e) {
           echo "Failed to get DB handle: " . $e->getMessage() . "\n";
@@ -71,7 +74,7 @@ function anyadir($pdo,$table)
  $query = "SELECT     * FROM       $table "; 
  */
 
-$table="RegistroDatos";
+$table="PruebaJose";
 $pdo = new PDO("pgsql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);  
 # si utilitzes mysql 
 
