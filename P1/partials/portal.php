@@ -13,6 +13,8 @@
 
  * */
 
+include(dirname(__FILE__)."/../partials/gestion_BD.php");
+
 //echo $_SERVER['DOCUMENT_ROOT']."/partials/footer.php";
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
@@ -25,24 +27,6 @@ switch ($action) {
         $central = "/../partials/centralForm.php";
         break;
     */
-    case "registrar":
-            $nomEmpresa=$_REQUEST["nomEmpresa"];
-            
-            $nomGestor=$_REQUEST["nomGestor"];
-
-            $adreça=$_REQUEST["adreça"];
-
-            $codiPostal=$_REQUEST["codiPostal"];
-
-            $població=$_REQUEST["població"];
-
-            $email=$_REQUEST["email"];
-
-            $informació=$_REQUEST["informació"];
-
-            anyadir($pdo, "RegistroDatos");
-            $central = "/../partials/formRegistro.php";
-            break;
 
     case "nosotros":
             $central = "/../partials/nosotros.php";
@@ -58,6 +42,31 @@ switch ($action) {
 
     case "registro":
         $central = "/../partials/formRegistro.php";
+        break;
+
+    case "registrar":
+        $nomEmpresa=$_REQUEST["nomEmpresa"];
+        
+        $nomGestor=$_REQUEST["nomGestor"];
+
+        $adreça=$_REQUEST["adreça"];
+
+        $codiPostal=$_REQUEST["codiPostal"];
+
+        $població=$_REQUEST["població"];
+
+        $email=$_REQUEST["email"];
+
+        $informació=$_REQUEST["informació"];
+
+        anyadir($pdo, "PruebaJose");
+        $central = "/../partials/formRegistro.php";
+        break;
+    
+    case "listar":
+        $rows =  consultar($pdo, "PruebaJose");
+    
+        $central = "/../partials/listar.php";
         break;
 
     case "envio":
