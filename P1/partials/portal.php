@@ -25,29 +25,23 @@ switch ($action) {
         $central = "/../partials/centralForm.php";
         break;
     */
-    case "modificar":
-            echo "Nom Empresa:",$_REQUEST["nomEmpresa"];
+    case "registrar":
             $nomEmpresa=$_REQUEST["nomEmpresa"];
             
-            echo "Nom Gestor:",$_REQUEST["nomGestor"];
             $nomGestor=$_REQUEST["nomGestor"];
 
-            echo "Adreça:",$_REQUEST["adreça"];
             $adreça=$_REQUEST["adreça"];
 
-            echo "Codi Postal:",$_REQUEST["codiPostal"];
             $codiPostal=$_REQUEST["codiPostal"];
 
-            echo "Població:",$_REQUEST["població"];
             $població=$_REQUEST["població"];
 
-            echo "Email:",$_REQUEST["email"];
             $email=$_REQUEST["email"];
 
-            echo "Informació:",$_REQUEST["informació"];
             $informació=$_REQUEST["informació"];
 
-            $central = "/../partials/centralForm.php";
+            anyadir($pdo, "RegistroDatos");
+            $central = "/../partials/formRegistro.php";
             break;
 
     case "nosotros":
