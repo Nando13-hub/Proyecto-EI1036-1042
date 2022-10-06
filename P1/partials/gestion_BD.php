@@ -24,14 +24,14 @@ function crearTablaActividades($pdo,$table)
    try {
       //Crea tabla si no existe
       $query = "CREATE TABLE IF NOT EXISTS  $table (
-               actividad_id SERIAL PRIMARY KEY,
-               nom_empresa CHAR(80) NOT NULL, 
-               nom_gestor CHAR(80) NOT NULL,
-               adreça CHAR(150) NOT NULL, 
+               nom_empresa VARCHAR(80) PRIMARY KEY, 
+               nom_gestor VARCHAR(80) NOT NULL,
+               adreça VARCHAR(150) NOT NULL, 
                codi_postal INT NOT NULL,
-               població CHAR(80) NOT NULL,
-               email CHAR(80) NOT NULL,
+               població VARCHAR(80) NOT NULL,
+               email VARCHAR(80) NOT NULL,
                informació VARCHAR(150) NOT NULL);";
+
 
       $pdo->exec($query);
    } catch (PDOException $e) {
@@ -52,8 +52,8 @@ function consultar($pdo,$table) {
 function anyadir($pdo,$table)
 {
    try {
-      $valores=["actividad1","Largo actividad1"];
-      $query = "INSERT INTO    $table (nombre,descripcion) VALUES (?,?)";
+      $valores=[$_REQUEST["nomEmpresa"], $_REQUEST["nomGestor"],$_REQUEST["adreça"],$_REQUEST["codiPostal"],$_REQUEST["població"],$_REQUEST["email"],$_REQUEST["informació"]];
+      $query = "INSERT INTO $table (nom_empresa,nom_gestor,adreça,codi_postal,població,email,informació) VALUES (?,?,?,?,?,?,?)";
       $consult = $pdo->prepare($query);
       $a=$consult->execute($valores); 
       if (1>$a)echo "InCorrecto";
