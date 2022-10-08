@@ -27,7 +27,8 @@ $rows = consultar($pdo, "PruebaJose");
                 <td><?php echo $row["email"];?></td>
                 <td><?php echo $row["informació"];?></td>
                 <td>
-<a
+                    <a href="/../partials/modificar.php"><button name="modificar" type="button"> Modificar </button></a>
+                    <a href="/../partials/borrar.php"><button name="borrar" type="button"> Borrar </button></a>
                 </td>
             </tr>
 <?php

@@ -68,6 +68,11 @@ function anyadir($pdo,$table)
         }
 }
 
+function borrar($pdo, $table)
+{
+}
+
+
 /* Consultas 
  $query = "INSERT INTO    $table (?) VALUES (?,?)";
  $query = "DELETE   FROM   $table WHERE actividad_id =(?)";
