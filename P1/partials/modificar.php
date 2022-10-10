@@ -14,9 +14,7 @@
                 <th>Edición</th>
             </tr>
 <?php
-$rows = consultar($pdo, "Prueba2Jose");
-
-    foreach($rows as $row) {
+    $datos =  consultarDato($pdo, "Prueba2Jose");
 ?>
             <tr>
                 <td><?php echo $row["nom_empresa"];?></td>
@@ -31,9 +29,7 @@ $rows = consultar($pdo, "Prueba2Jose");
                 <a href="?action=modificar&id=<?php echo $row["id_empresa"];?>"><button class="button">Modificar</button></a><br/>
                 </td>
             </tr>
-<?php
-    }
-?>
+
         </table>
     </body>
 </html>

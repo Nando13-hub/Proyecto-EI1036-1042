@@ -59,15 +59,28 @@ switch ($action) {
 
         $informació=$_REQUEST["informació"];
 
-        anyadir($pdo, "PruebaJose");
-        $central = "/../partials/formRegistro.php";
+        anyadir($pdo, "Prueba2Jose");
+        $central = "/../partials/listar.php";
         break;
     
     case "listar":
-        $rows =  consultar($pdo, "PruebaJose");
+        $rows =  consultar($pdo, "Prueba2Jose");
     
         $central = "/../partials/listar.php";
         break;
+
+    case "borrar":
+        borrar($pdo, "Prueba2Jose");
+    
+        $central = "/../partials/listar.php";
+        break;
+
+    case "modificar":    
+        $datos =  consultarDato($pdo, "Prueba2Jose");
+
+        $central = "/../partials/modificar.php";
+        break;
+
 
     case "envio":
         $nombrefichero=$_FILES["foto_cliente"]['name'];

@@ -24,7 +24,8 @@ function crearTablaActividades($pdo,$table)
    try {
       //Crea tabla si no existe
       $query = "CREATE TABLE IF NOT EXISTS  $table (
-               nom_empresa VARCHAR(80) PRIMARY KEY, 
+               id_empresa SERIAL PRIMARY KEY,
+               nom_empresa VARCHAR(80) NOT NULL , 
                nom_gestor VARCHAR(80) NOT NULL,
                adreça VARCHAR(150) NOT NULL, 
                codi_postal INT NOT NULL,
@@ -42,6 +43,17 @@ function crearTablaActividades($pdo,$table)
 
 function consultar($pdo,$table) {
    $query = "SELECT     * FROM       $table "; 
+   $consult = $pdo->prepare($query);
+   $a=$consult->execute(array());
+   if (1>$a)echo 
+      "InCorrectoConsulta";
+   return ($consult->fetchAll(PDO::FETCH_ASSOC)); 
+
+}
+
+function consultarDato($pdo,$table) {
+   $id = $_REQUEST["id"];
+   $query = "SELECT     * FROM       $table      WHERE         $id"; 
    $consult = $pdo->prepare($query);
    $a=$consult->execute(array());
    if (1>$a)echo 
@@ -70,6 +82,34 @@ function anyadir($pdo,$table)
 
 function borrar($pdo, $table)
 {
+   try{ 
+      $id = $_REQUEST["id"];
+      $query = "DELETE  FROM $table WHERE id_empresa = $id";
+      $consult = $pdo->prepare($query);
+      $a=$consult->execute(array()); 
+      if (1>$a)
+         echo "InCorrecto";
+      }
+      catch (PDOException $e) {
+          echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+          exit;
+        }
+}
+
+function modificar($pdo, $table)
+{
+   try{ 
+      $valores=[$_REQUEST["nomEmpresa"], $_REQUEST["nomGestor"],$_REQUEST["adreça"],$_REQUEST["codiPostal"],$_REQUEST["població"],$_REQUEST["email"],$_REQUEST["informació"], $_REQUEST["id"]];
+      $query = " UPDATE $table SET nom_empresa= ?,nom_gestor=?,adreça=?,codi_postal=?,població=?,email=?,informació=? WHERE id_empresa = ?";
+      $consult = $pdo->prepare($query);
+      $a=$consult->execute($valores); 
+      if (1>$a)
+         echo "InCorrecto";
+      }
+      catch (PDOException $e) {
+          echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+          exit;
+        }
 }
 
 
@@ -79,7 +119,7 @@ function borrar($pdo, $table)
  $query = "SELECT     * FROM       $table "; 
  */
 
-$table="PruebaJose";
+$table="Prueba2Jose";
 $pdo = new PDO("pgsql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);  
 # si utilitzes mysql 
 
