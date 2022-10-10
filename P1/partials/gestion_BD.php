@@ -53,7 +53,7 @@ function consultar($pdo,$table) {
 
 function consultarDato($pdo,$table) {
    $id = $_REQUEST["id"];
-   $query = "SELECT     * FROM       $table      WHERE         $id"; 
+   $query = "SELECT * FROM $table WHERE  id_empresa=$id"; 
    $consult = $pdo->prepare($query);
    $a=$consult->execute(array());
    if (1>$a)echo 
