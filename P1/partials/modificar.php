@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>Modificado</h1>
-        <table>
-            <tr>
-                <th>Nom empresa</th>
-                <th>Nom gestor</th>
-                <th>adreça</th>
-                <th>Codi Postal</th>
-                <th>Poblacio</th>
-                <th>Email</th>
-                <th>Info</th>
-                <th>Edición</th>
-            </tr>
-<?php
-    $datos =  consultarDato($pdo, "Prueba2Jose");
-?>
-            <tr>
-                <td><?php echo $datos["nom_empresa"];?></td>
-                <td><?php echo $datos["nom_gestor"];?></td>
-                <td><?php echo $datos["adreça"];?></td>
-                <td><?php echo $datos["codi_postal"];?></td>
-                <td><?php echo $datos["població"];?></td>
-                <td><?php echo $datos["email"];?></td>
-                <td><?php echo $datos["informació"];?></td>
-                <td>
-                <a href="?action=borrar&id=<?php echo $datos["id_empresa"];?>"><button class="button">Borrar</button></a><br/>
-                <a href="?action=modificar&id=<?php echo $datos["id_empresa"];?>"><button class="button">Modificar</button></a><br/>
-                </td>
-            </tr>
+    <?php
+    $rows = consultar($pdo, "Prueba2Jose");
+    $id = $_REQUEST["id"];
 
-        </table>
+    foreach($rows as $row) {
+        if ($row["id_empresa"] == $id ){ 
+?>
+        <main>
+        <h1>Modificado</h1>
+            <table>
+            <form action="?action=modificado&id=<?php echo $row["id_empresa"];?>" method="POST">
+
+                <tr>
+                    <th>Nom empresa</th>
+                    <th>Nom gestor</th>
+                    <th>adreça</th>
+                    <th>Codi Postal</th>
+                    <th>Poblacio</th>
+                    <th>Email</th>
+                    <th>Info</th>
+                    <th>Edición</th>
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="nom_empresa" class="item_requerid" size="20" maxlength="25" value="<?php print $row["nom_empresa"]; ?>"></td>
+                    <td><input type="text" name="nom_gestor" class="item_requerid" size="20" maxlength="25" value="<?php print $row["nom_gestor"]; ?>"></td>
+                    <td><input type="text" name="adreça" class="item_requerid" size="20" maxlength="25" value="<?php print $row["adreça"]; ?>"></td>
+                    <td><input type="number" name="codi_postal" class="item_requerid" size="20" maxlength="25" value="<?php print $row["codi_postal"]; ?>"></td>
+                    <td><input type="text" name="població" class="item_requerid" size="20" maxlength="25" value="<?php print $row["població"]; ?>"></td>
+                    <td><input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $row["email"]; ?>"></td>
+                    <td><input type="text" name="informació" class="item_requerid" size="20" maxlength="25" value="<?php print $row["informació"]; ?>"></td>
+                    <td>
+                        <input type="submit" value="Modificar">
+                    </td>
+                    
+                </tr>
+
+<?php
+    }
+}
+
+?>
+
+</form>
+                </table>
+        </main>
     </body>
 </html>

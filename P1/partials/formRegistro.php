@@ -24,7 +24,7 @@
 
 		<label for="codiPostal">Codi Postal</label>
 		<br/>
-		<input type="text" name="codiPostal" class="item_requerid" size="20" maxlength="25" value="<?php print $codiPostal ?>"
+		<input type="number" name="codiPostal" class="item_requerid" size="20" maxlength="25" value="<?php print $codiPostal ?>"
 		 placeholder="Codi Postal" />
 		<br/>
 

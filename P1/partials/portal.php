@@ -76,9 +76,28 @@ switch ($action) {
         break;
 
     case "modificar":    
-        $datos =  consultarDato($pdo, "Prueba2Jose");
 
         $central = "/../partials/modificar.php";
+        break;
+
+    case "modificado":
+        $mEmpresa=$_REQUEST["nom_empresa"];
+        
+        $nomGestor=$_REQUEST["nom_gestor"];
+
+        $adreça=$_REQUEST["adreça"];
+
+        $codiPostal=$_REQUEST["codi_postal"];
+
+        $població=$_REQUEST["població"];
+
+        $email=$_REQUEST["email"];
+
+        $informació=$_REQUEST["informació"];
+
+        modificar($pdo, "Prueba2Jose");
+    
+        $central = "/../partials/listar.php";
         break;
 
 

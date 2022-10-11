@@ -51,17 +51,6 @@ function consultar($pdo,$table) {
 
 }
 
-function consultarDato($pdo,$table) {
-   $id = $_REQUEST["id"];
-   $query = "SELECT * FROM $table WHERE  id_empresa=$id"; 
-   $consult = $pdo->prepare($query);
-   $a=$consult->execute(array());
-   if (1>$a)echo 
-      "InCorrectoConsulta";
-   return ($consult->fetchAll(PDO::FETCH_ASSOC)); 
-
-}
-
 function anyadir($pdo,$table)
 {
    try {
@@ -99,12 +88,14 @@ function borrar($pdo, $table)
 function modificar($pdo, $table)
 {
    try{ 
-      $valores=[$_REQUEST["nomEmpresa"], $_REQUEST["nomGestor"],$_REQUEST["adreça"],$_REQUEST["codiPostal"],$_REQUEST["població"],$_REQUEST["email"],$_REQUEST["informació"], $_REQUEST["id"]];
-      $query = " UPDATE $table SET nom_empresa= ?,nom_gestor=?,adreça=?,codi_postal=?,població=?,email=?,informació=? WHERE id_empresa = ?";
+
+      $valores =[$_REQUEST["nom_empresa"],$_REQUEST["nom_gestor"],$_REQUEST["adreça"],$_REQUEST["codi_postal"],$_REQUEST["població"],$_REQUEST["email"],$_REQUEST["informació"], $_REQUEST["id"]];
+
+      $query = " UPDATE $table SET nom_empresa=?,nom_gestor=?,adreça=?,codi_postal=?,població=?,email=?,informació=? WHERE id_empresa = ?";
       $consult = $pdo->prepare($query);
       $a=$consult->execute($valores); 
       if (1>$a)
-         echo "InCorrecto";
+         echo "InCorrectoMod";
       }
       catch (PDOException $e) {
           echo "Failed to get DB handle: " . $e->getMessage() . "\n";
