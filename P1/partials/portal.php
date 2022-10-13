@@ -100,6 +100,25 @@ switch ($action) {
         $central = "/../partials/listar.php";
         break;
 
+    case "loguear":
+        $central = "/../partials/loguear.php";
+        break;
+
+    case "login":
+        $nom = $_REQUEST["nom"]; 
+        $contraseña = $_REQUEST["contraseña"]; 
+        $central = "/../partials/loguear.php";
+
+        $autenticado = consultar($pdo, "usuaris");
+
+        foreach ($autenticado as $cliente){
+            if ($cliente["nom"] == $nom and $cliente["contraseña"] == $contraseña){
+                $central = "/../partials/autenticado.php";
+            }
+        }
+        break;
+        
+    
 
     case "envio":
         $nombrefichero=$_FILES["foto_cliente"]['name'];

@@ -15,6 +15,9 @@
 		<li>
 			<a href="?action=envioFichero">EnvioFichero</a>
 		</li>
+		<li>
+			<a href="?action=loguear">Loguear</a>
+		</li>
 	
 	</ul>
 </nav>

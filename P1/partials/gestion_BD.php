@@ -103,14 +103,12 @@ function modificar($pdo, $table)
         }
 }
 
-
 /* Consultas 
  $query = "INSERT INTO    $table (?) VALUES (?,?)";
  $query = "DELETE   FROM   $table WHERE actividad_id =(?)";
  $query = "SELECT     * FROM       $table "; 
  */
-
-$table="Prueba2Jose";
+#$table="Prueba2Jose";
 $pdo = new PDO("pgsql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);  
 # si utilitzes mysql 
 
