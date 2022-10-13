@@ -51,6 +51,16 @@ function consultar($pdo,$table) {
 
 }
 
+function consultarUsr($pdo,$table) {
+   $valores = [$_REQUEST["nom"] ,$_REQUEST["contraseña"]]; 
+   $query = "SELECT * FROM  $table WHERE nom = ? AND contraseña = ?"; 
+   $consult = $pdo->prepare($query);
+   $a=$consult->execute($valores);
+   if (1>$a)echo 
+      "InCorrectoConsulta";
+   return ($consult->fetchAll(PDO::FETCH_ASSOC)); 
+}
+
 function anyadir($pdo,$table)
 {
    try {
@@ -59,9 +69,9 @@ function anyadir($pdo,$table)
       $consult = $pdo->prepare($query);
       $a=$consult->execute($valores); 
       if (1>$a)
-         echo "InCorrecto";
-      //$datos=consultar($pdo,$table);
-      //print_r($datos);
+         return false;
+      else
+         return true;
       }
       catch (PDOException $e) {
           echo "Failed to get DB handle: " . $e->getMessage() . "\n";

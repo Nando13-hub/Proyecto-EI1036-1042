@@ -16,7 +16,15 @@
 			<a href="?action=envioFichero">EnvioFichero</a>
 		</li>
 		<li>
+	<?php 
+	if (isset($_SESSION["nombre"])) {?>
+		<a><?php echo "Bienvenido " .$_SESSION["nombre"] ?></a>
+	<?php }else{
+	?>
 			<a href="?action=loguear">Loguear</a>
+<?php
+	}
+?>
 		</li>
 	
 	</ul>

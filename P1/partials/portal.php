@@ -15,6 +15,8 @@
 
 include(dirname(__FILE__)."/../partials/gestion_BD.php");
 
+session_start();
+
 //echo $_SERVER['DOCUMENT_ROOT']."/partials/footer.php";
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
@@ -109,16 +111,14 @@ switch ($action) {
         $contraseña = $_REQUEST["contraseña"]; 
         $central = "/../partials/loguear.php";
 
-        $autenticado = consultar($pdo, "usuaris");
-
-        foreach ($autenticado as $cliente){
-            if ($cliente["nom"] == $nom and $cliente["contraseña"] == $contraseña){
-                $central = "/../partials/autenticado.php";
-            }
+        $autenticado = consultarUsr($pdo, "usuaris");
+        if ($autenticado){
+            $_SESSION["nombre"] = $nom;
+            setcookie("nombre", $nom, 86400);
+            $central = "/../partials/autenticado.php";
         }
-        break;
         
-    
+        break;
 
     case "envio":
         $nombrefichero=$_FILES["foto_cliente"]['name'];

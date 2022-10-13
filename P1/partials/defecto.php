@@ -6,4 +6,5 @@ if (isset($data["error"])) {
 if (isset($data["exito"])) {
 	print ("<P>Exito: ".$data["exito"]. "</P>");
 }
+
  ?>
