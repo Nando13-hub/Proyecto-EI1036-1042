@@ -69,9 +69,9 @@ function anyadir($pdo,$table)
       $consult = $pdo->prepare($query);
       $a=$consult->execute($valores); 
       if (1>$a)
-         return false;
+         return 0;
       else
-         return true;
+         return 1;
       }
       catch (PDOException $e) {
           echo "Failed to get DB handle: " . $e->getMessage() . "\n";
